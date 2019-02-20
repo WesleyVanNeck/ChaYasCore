@@ -1,0 +1,6 @@
+main: main.java.Main
+name: ChaYasCore
+version: 3.0-SNAPSHOT
+author: "Wesleyvanneck"
+depend: [ProtocolLib]
+api-version: 1.13
