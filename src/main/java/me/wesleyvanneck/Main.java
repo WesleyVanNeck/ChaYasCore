@@ -1,37 +1,32 @@
 package me.wesleyvanneck;
 
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import me.wesleyvanneck.ProtocolSupportSwordBlocking;
 
+
 public class Main extends JavaPlugin {
 	
-        private static Plugin plugin;
-	private static Server instance;
-	public ProtocolSupportSwordBlocking ProtocolSupportSwordBlocking = null;
+     public static final String PREFIX = "[" + ChatColor.DARK_PURPLE + "ChaYasCore" + ChatColor.RESET + "] ";
 
 	
-		@Override
+	@Override
 	public void onEnable() {
-		enableMessage();
+		Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_PURPLE + "Starting ChaYasCore!" + ChatColor.RESET);
 	}
 	
-	private void enableMessage() {
-		String v = this.getDescription().getVersion();
-		Messenger mes = new Messenger(this);
-		
-		mes.log("&d----------------------------------------------");
-		mes.log("&d Enabling ChaYasCore version 0.1 alpha"
-		mes.log("&d----------------------------------------------");
-
+	@Override
+	public void onDisable() {
+		Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_PURPLE + "disableing ChaYasCore!" + ChatColor.RESET);
 	}
-
-	public static ProtocolSupportSwordBlocking ProtocolSupportSwordBlocking() {
-		return ProtocolSupportSwordBlocking;
 	
-	}
-		if (Link$.isPluginEnabled("ProtocolSupportSwordBlocking")) {
-			ProtocolSupportSwordBlocking = new AProtocolSupportSwordBlocking();
-			ProtocolSupportSwordBlocking.register();
-		}
-	}
+ class ProtocolSupportSwordBlocking{
+   public void ProtocolSupportSwordBlocking(){
+     //do stuff
+      }
+   }
 }

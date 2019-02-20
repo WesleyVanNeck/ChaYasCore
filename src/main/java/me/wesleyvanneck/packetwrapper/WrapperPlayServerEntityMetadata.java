@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.mrpowergamerbr.protocolsupportswordblocking.packetwrapper;
+package me.wesleyvanneck.packetwrapper;
 
 import java.util.List;
 
