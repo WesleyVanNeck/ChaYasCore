@@ -1,4 +1,4 @@
-main: main.java.Main
+main: me.wesleyvanneck.Main
 name: ChaYasCore
 version: 3.0-SNAPSHOT
 author: "Wesleyvanneck"
