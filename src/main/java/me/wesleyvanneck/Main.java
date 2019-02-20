@@ -5,7 +5,7 @@ import me.wesleyvanneck.ProtocolSupportSwordBlocking;
 
 public class Main extends JavaPlugin {
 	
-    private static Plugin plugin;
+        private static Plugin plugin;
 	private static Server instance;
 	public ProtocolSupportSwordBlocking ProtocolSupportSwordBlocking = null;
 
