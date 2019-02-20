@@ -20,7 +20,7 @@ import protocolsupport.api.ProtocolSupportAPI;
 import protocolsupport.api.ProtocolVersion;
 
 public class ProtocolSupportSwordBlocking extends JavaPlugin implements Listener {
-	public void onEnable() {
+	
 		Bukkit.getPluginManager().registerEvents(this, this);
 
 		ProtocolManager protocolManager = ProtocolLibrary.getProtocolManager();
@@ -46,7 +46,7 @@ public class ProtocolSupportSwordBlocking extends JavaPlugin implements Listener
 					}
 				}
 			}
-			
+		
 			@Override
 			public void onPacketSending(PacketEvent event) {
 				if (ProtocolSupportAPI.getProtocolVersion(event.getPlayer()).isBefore(ProtocolVersion.MINECRAFT_1_9)) { // If it is a client before MC 1.9...

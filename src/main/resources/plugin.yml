@@ -1,6 +1,4 @@
-main: me.wesleyvanneck.Main
+main: me.wesleyvanneck.core
 name: ChaYasCore
-version: 3.0-SNAPSHOT
-author: "Wesleyvanneck"
-depend: [ProtocolSupport", "ProtocolLib]
-api-version: 1.13
+version: 0.0.1 alpha
+softdepend: ["ProtocolSupport", "ProtocolLib"]
