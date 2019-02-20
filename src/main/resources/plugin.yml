@@ -2,5 +2,5 @@ main: me.wesleyvanneck.Main
 name: ChaYasCore
 version: 3.0-SNAPSHOT
 author: "Wesleyvanneck"
-depend: [ProtocolLib]
+depend: [ProtocolSupport", "ProtocolLib]
 api-version: 1.13

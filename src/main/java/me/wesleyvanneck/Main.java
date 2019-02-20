@@ -27,5 +27,11 @@ public class Main extends JavaPlugin {
 
 	public static ProtocolSupportSwordBlocking ProtocolSupportSwordBlocking() {
 		return ProtocolSupportSwordBlocking;
+	
+	}
+		if (Link$.isPluginEnabled("ProtocolSupportSwordBlocking")) {
+			ProtocolSupportSwordBlocking = new AProtocolSupportSwordBlocking();
+			ProtocolSupportSwordBlocking.register();
+		}
 	}
 }
