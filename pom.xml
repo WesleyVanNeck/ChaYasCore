@@ -3,16 +3,64 @@
   <groupId>com.Nepian.Spigot</groupId>
   <artifactId>ChaYasCore</artifactId>
   <version>0.1</version>
-
-  <repositories>
-    <repository>
-      <id>spigotmc-repo</id>
-      <url>https://hub.spigotmc.org/nexus/content/groups/public</url>
-    </repository>
-	<repository>
-    <id>dmulloy2-repo</id>
-    <url>http://repo.dmulloy2.net/nexus/repository/public/</url>
-  </repository>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+	</properties>
+	<distributionManagement>
+		<repository>
+			<id>nexus-releases</id>
+			<url>https://maven.skorrloregaming.com/repository/maven-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<url>https://maven.skorrloregaming.com/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<createDependencyReducedPom>false</createDependencyReducedPom>
+							<minimizeJar>true</minimizeJar>
+							<artifactSet>
+								<includes>
+									<include>com.github.SkorrloreGaming:SQLDatabase</include>
+									<include>redis.clients:jedis</include>
+									<include>com.google.code.gson:gson</include>
+									<include>org.apache.commons:commons-pool2</include>
+								</includes>
+							</artifactSet>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.1</version>
+				<executions>
+					<execution>
+						<id>default-deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
 		<repository>
 			<id>papermc</id>
 			<url>https://papermc.io/repo/repository/maven-public/</url>
@@ -26,86 +74,60 @@
 			<url>http://jitpack.io</url>
 		</repository>
 		<repository>
-			<id>factions-repo</id>
-			<url>http://ci.ender.zone/plugin/repository/everything/</url>
-		</repository>
-		<repository>
-			<id>sk89q-repo</id>
-			<url>http://maven.sk89q.com/repo/</url>
-		</repository>
-		<repository>
-			<id>jcenter</id>
-			<name>jcenter-bintray</name>
-			<url>http://jcenter.bintray.com</url>
-		</repository>
-		<repository>
 			<id>votifier-repo</id>
 			<url>https://dl.bintray.com/nuvotifier/maven/</url>
 		</repository>
-  </repositories>
-
-
+	</repositories>
 	<dependencies>
 		<dependency>
-			<groupId>org.spigotmc</groupId>
-			<artifactId>spigot-api</artifactId>
+			<groupId>com.destroystokyo.paper</groupId>
+			<artifactId>paper-api</artifactId>
 			<version>1.13.2-R0.1-SNAPSHOT</version>
-			<scope>compile</scope>
 		</dependency>
-       <dependency>
-      <groupId>com.comphenix.protocol</groupId>
-      <artifactId>ProtocolLib-API</artifactId>
-      <version>4.4.0</version>
-    </dependency>
-   <dependency>
-    <groupId>com.google.guava</groupId>
-    <artifactId>guava</artifactId>
-    <version>r05</version>
- </dependency>
-   <dependency>
-      <groupId>org.bukkit</groupId>
-      <artifactId>bukkit</artifactId>
-      <version>1.13.2-R0.1-SNAPSHOT</version>
-       <scope>provided</scope>
-    </dependency>
-	<dependency>
-	<groupId>com.github.ProtocolSupport</groupId>
-	<artifactId>ProtocolSupport</artifactId>
-	<version>ddbcb5f964</version>
-	<scope>compile</scope>
-	<type>jar</type>
-	<optional>true</optional>
- 	</dependency>
+		<dependency>
+			<groupId>com.github.aadnk</groupId>
+			<artifactId>ProtocolLib</artifactId>
+			<version>6ff6976e85</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.ProtocolSupport</groupId>
+			<artifactId>ProtocolSupport</artifactId>
+			<version>ddbcb5f964</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.MilkBowl</groupId>
+			<artifactId>VaultAPI</artifactId>
+			<version>da407c0059</version>
+		</dependency>
+		<dependency>
+			<groupId>com.vexsoftware</groupId>
+			<artifactId>nuvotifier-universal</artifactId>
+			<version>2.3.4</version>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.1.29.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>3.1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-pool2</artifactId>
+			<version>2.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>me.lucko.luckperms</groupId>
+			<artifactId>luckperms-api</artifactId>
+			<version>4.3</version>
+		</dependency>
 	</dependencies>
-
-  <build>
-    <finalName>${artifactId}</finalName>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-deploy-plugin</artifactId>
-        <version>2.7</version>
-        <configuration>
-          <altDeploymentRepository>internal.repo::default::file://mvn-repo</altDeploymentRepository>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.10.4</version>
-        <configuration>
-          <reportOutputDirectory>docs</reportOutputDirectory>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-  
 </project>
